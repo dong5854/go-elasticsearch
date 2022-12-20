@@ -86,10 +86,6 @@ func (r UpdateRequest) Do(ctx context.Context, transport Transport) (*Response, 
 
 	method = "POST"
 
-	if r.DocumentType == "" {
-		r.DocumentType = "_doc"
-	}
-
 	path.Grow(1 + len(r.Index) + 1 + len(r.DocumentType) + 1 + len(r.DocumentID) + 1 + len("_update"))
 	path.WriteString("/")
 	path.WriteString(r.Index)
